@@ -1,12 +1,13 @@
-try:
-	import win32gui
-	import win32ui
-	import win32con
-	import win32api
-except:
-	print "Could not load the module on this host. Skipping."
 
 def run(**args):
+	try:
+		import win32gui
+		import win32ui
+		import win32con
+		import win32api
+	except:
+		print "Could not load the module on this host. Skipping."
+		return None
 	hdesktop = win32gui.GetDesktopWindow()
 	width = win32api.GetSystemMetrics(win32con.SM_CXVIRTUALSCREEN)
 	height = win32api.GetSystemMetrics(win32con.SM_CYVIRTUALSCREEN)

@@ -1,7 +1,11 @@
-import win32gui
-import win32ui
-import win32con
-import win32api
+try:
+	import win32gui
+	import win32ui
+	import win32con
+	import win32api
+except:
+	print "Could not load the module on this host. Skipping."
+	return
 
 def run(**args):
 	hdesktop = win32gui.GetDesktopWindow()

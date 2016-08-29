@@ -18,5 +18,5 @@ def run(**args):
 	screenshot = win32ui.CreateBitmap()
 	screenshot.CreateCompatibleBitmap(img_dc, width, height)
 	mem_dc.SelectObject(screenshot)
-	mem_dc.BitBlt((0, 0), (width, height), img_dc, (left, top), win32.SRCCOPY)
+	mem_dc.BitBlt((0, 0), (width, height), img_dc, (left, top), win32con.SRCCOPY)
 	return mem_dc,"scrn"

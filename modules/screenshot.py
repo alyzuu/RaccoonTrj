@@ -5,7 +5,7 @@ def run(**args):
 		import win32con
 		import win32api
 		import base64
-		import Image
+		from PIL import Image
 	except:
 		print "Could not load the module on this host. Skipping."
 		return 0, "failed"

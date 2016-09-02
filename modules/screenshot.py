@@ -24,9 +24,9 @@ def run(**args):
 	screenshot.SaveBitmapFile(mem_dc, 'screenshot.bmp')
 	imagefile = Image.open('screenshot.bmp')
 	imagefile = imagefile.resize((800,600),Image.ANTIALIAS)
-	imagefile.save('screenshot.jpg',optimize = True,quality = 95)
+	imagefile.save('screenshot.jpeg',optimize = True,quality = 95)
 	del imagefile
-	imagefile = Image.open('screenshot.jpg')
+	imagefile = Image.open('screenshot.jpeg')
 	imgstring = base64.b64encode(imagefile.read())
 	del imagefile
 	return imgstring, "scrn"

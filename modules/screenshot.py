@@ -22,11 +22,13 @@ def run(**args):
 	mem_dc.SelectObject(screenshot)
 	mem_dc.BitBlt((0, 0), (width, height), img_dc, (left, top), win32con.SRCCOPY)
 	screenshot.SaveBitmapFile(mem_dc, 'screenshot.bmp')
-	with Image.open('screenshot.bmp') as imagefile:
-		imagefile = imagefile.resize((800,600),Image.ANTIALIAS)
-		imagefile.save('screenshot.jpg' ,optimize = True, quality = 95)
-	with Image.open('screenshot.jpg') as imagefile:
-		imgstring = base64.b64encode(imagefile.read())
+	imagefile = Image.open('screenshot.bmp')
+	imagefile = imagefile.resize((800,600),Image.ANTIALIAS)
+	imagefile.save('screenshot.jpg' ,optimize = True, quality = 95)
+	del imagefile
+	imagefile = Image.open('screenshot.jpg')
+	imgstring = base64.b64encode(imagefile.read())
+	del imagefile
 	return imgstring, "scrn"
 	
 	

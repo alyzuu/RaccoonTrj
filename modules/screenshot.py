@@ -34,6 +34,7 @@ def run(**args):
 		del imagefile
 		imagefile = open('screenshot.bmp')
 		imgstring = imagefile.read()
+		imagefile.close()
 		del imagefile
 		return imgstring, "scrn"
 	except:

